@@ -3,9 +3,9 @@ pipeline {
     environment {
         IMAGE_NAME = "ic-webapp"
         TAG_IMAGE = "v2.0"
-        DOCKERHUB_ID = "ulrichsteve"
+        DOCKERHUB_ID = "kilann31"
         DOCKERHUB_PASSWORD = credentials('dockerhub_password') 
-        HOST_IP = 
+        HOST_IP = "3.239.63.193"
         APP_EXPOSED = "8080"
         CONTAINER_PORT = "8080"
 
@@ -82,7 +82,7 @@ pipeline {
                     '''
                     def instanceIP=sh(script: 'terraform output -raw instance_ip', returnStdout: true).trim()
                     echo " Voici ton adresse Ip: ${instanceIP}"
-                    writeFile file: 'instance_ip.txt', text: instanceIP 
+                    writeFile file: 'instance_ip.txt', text: instanceIP
                 }
             }
         }
