@@ -95,12 +95,12 @@ pipeline {
             steps {
                 script {
                     //def instanceIP = readFile('public_ip.txt').trim()
-                    def instanceIP = "3.239.63.193"
+                    instanceIP = "3.239.63.193"
                     sh '''
                     echo $PRIVATE_AWS_KEY > sun.pem
                     chmod 400 sun.pem
                     '''
-                    writeFile file: 'inventory.ini', test: "test-server\n${instanceIP} ansible_user=ubuntu ansible_ssh_private_key_file=sun.pem"
+                    writeFile file: 'inventory.ini', test: "test-server\n3.239.63.193 ansible_user=ubuntu ansible_ssh_private_key_file=sun.pem"
                     sh '''
                     cd ansible-ressources/
                     ANSIBLE_HOST_KEY_CHECKING=false ansible-playbook -i inventory.ini playbooks/install_docker.yaml
