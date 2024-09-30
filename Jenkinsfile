@@ -80,7 +80,8 @@ pipeline {
                     terraform init
                     terraform apply -auto-approve
                     '''
-                    def instanceIP = sh (script: terraform output -raw instance_ip', returnStdout: true).trim()
+
+                    def instanceIP = sh (script: 'terraform output -raw instance_ip', returnStdout: true).trim()
                     echo " Voici ton adresse Ip: ${instanceIP}"
                 }
             }
