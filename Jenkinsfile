@@ -94,7 +94,7 @@ pipeline {
             }
             steps {
                 script {
-                    def instanceIP = readFile('instance_ip.txt').trim()
+                    def instanceIP = readFile('public_ip.txt').trim()
                     sh '''
                     echo $PRIVATE_AWS_KEY > sun.pem
                     chmod 400 sun.pem
