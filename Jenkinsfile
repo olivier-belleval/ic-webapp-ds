@@ -3,11 +3,11 @@ pipeline {
     environment {
         IMAGE_NAME = "ic-webapp"
         TAG_IMAGE = "v2.0"
-        DOCKERHUB_ID = "ulrichsteve"
+        DOCKERHUB_ID = "kilann31"
         DOCKERHUB_PASSWORD = credentials('dockerhub_password') 
-        HOST_IP = 
-        APP_EXPOSED = 8080
-        CONTAINER_PORT = 8080
+        HOST_IP = "3.239.63.193"
+        APP_EXPOSED = "8080"
+        CONTAINER_PORT = "8080"
 
     }
     stages {
